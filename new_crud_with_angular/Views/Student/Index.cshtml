@@ -1,0 +1,91 @@
+﻿
+<div ng-app="myapp">
+    <div ng-controller="studentCtrl" >
+  
+        <form novalidate name="frmstudent" id="frmstudent" class="form-horizontal row-border">
+            <br/>
+            <div class="col-md-12">
+                <div class="form-group" style="display: none">
+                    <label class="col-md-4 control-label" for="input17" > id</label>
+                    <div class="col-md-7 ">
+                        <input type='text' id="idstudentID" class="form-control" name="namestudentID" ng-model="studentID"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4  control-label" for="input17">First Name</label>
+                    <div class="col-md-7">
+                        <input type="text" id="idfirstname" class="form-control" name="namefirstname" ng-model="firstName"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="input17">Last Name</label>
+                    <div class="col-md-7">
+                        <input type="text" id="idlastname" class="form-control" name="nameFirstName" ng-model="lastName" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="input17"> Email</label>
+                    <div class="col-md-7">
+                        <input type="email" id="idEmail" class="form-control" name="nameEmail" ng-model="email"/>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="input17"> Address</label>
+                    <div class="col-md-7 ">
+                        <input type='text' id="idAddress" class="form-control" name="nameAddress" ng-model="address"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-7">
+                        <span id="Save" class="btn btn-success margin-right-btn"
+
+                              ng-click="SaveUpdate()">
+                            <i class="icon-save"></i> {{btntext}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <table class="table table-hover general-table">
+                <thead class="grid-top-panel">
+                <tr>
+                    <th >First Name</th>
+                    <th >Last Name</th>
+                    <th >Email</th>
+                    <th >Address</th>
+                    @*<th>Action</th>*@
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="dataModel in students">
+                    <td style="display: none">{{dataModel.StudentID}}</td>
+                    <td>{{dataModel.FirstName}}</td>
+                    <td>{{dataModel.LastName}}</td>
+                    <td>{{dataModel.Email}}</td>
+                    <td>{{dataModel.Address}}</td>
+                    <td style="text-align: right; color: white">
+                        <span>
+                            <span id="save" class="btn btn-primary marign-right-btn" ng-click="GetStudentByID(dataModel)" onclick="window.scrollTo(0, 0,'smooth' );">Edite</span>
+                        </span>
+                    </td>
+                    <td style="text-align: right; color: white">
+                        <span>
+                            <span id="save" class="btn btn-danger margin-right-btn" ng-click="DeleteStudent(dataModel)" >Delete</span>
+
+                        </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+
+<script src="~/Scripts/angular.js"></script>
+ @*<script src="~/Scripts/angular.min.js"></script>*@
+<script src="~/ScriptsNg/Module/app.js"></script>
+<script src="~/ScriptsNg/Controller/StudentCtrl.js"></script>
+<script src="~/ScriptsNg/Service/CrudService.js"></script>
